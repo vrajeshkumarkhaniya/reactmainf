@@ -1,56 +1,131 @@
-/* src/components/ProductList.css */
-
-.container {
-  padding: 20px;
-  font-family: Arial, sans-serif;
-  background: #f4f4f4;
+/* -------- Global Styles -------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h1 {
+body, html, #root {
+  height: 100%;
+}
+
+/* -------- Light Mode -------- */
+.app.light {
+  background-color: #f9f9f9;
+  color: #222;
+  min-height: 100vh;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* -------- Dark Mode -------- */
+.app.dark {
+  background-color: #121212;
+  color: #f5f5f5;
+  min-height: 100vh;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* -------- Toggle Button -------- */
+.mode {
+  text-align: center;
+  padding: 20px;
+}
+
+.mode button {
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(135deg, #4f46e5, #9333ea);
+  color: white;
+  transition: 0.3s ease;
+}
+
+.mode button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+}
+
+/* -------- Container -------- */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+/* -------- Heading -------- */
+.container h1 {
   text-align: center;
   margin-bottom: 30px;
+  font-size: 2.2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
 }
 
+/* -------- Product Grid -------- */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
 }
 
+/* -------- Product Card -------- */
 .card {
-  background: #fff;
-  border-radius: 8px;
+  border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease;
+  padding: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  background-color: inherit;
+  border: 1px solid rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
+/* -------- Product Image -------- */
 .card img {
   width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
+  border-radius: 10px;
 }
 
+/* -------- Card Body -------- */
 .card-body {
-  padding: 15px;
+  margin-top: 12px;
 }
 
-.card h3 {
-  margin: 0 0 10px;
-  font-size: 1.2em;
+.card-body h3 {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
 }
 
-.card p {
-  margin: 0 0 10px;
-  font-size: 0.95em;
-  color: #555;
+.card-body p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  line-height: 1.4;
 }
 
+/* -------- Price -------- */
 .price {
+  font-size: 1.1rem;
   font-weight: bold;
-  color: #2c3e50;
+  margin-top: 10px;
+  color: #2563eb;
+}
+
+/* -------- Dark Mode Special -------- */
+.app.dark .card {
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 5px 15px rgba(255,255,255,0.05);
+}
+
+.app.dark .price {
+  color: #facc15; /* yellow for dark mode */
 }
